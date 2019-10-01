@@ -104,7 +104,7 @@ Next, replace the following path in the setenv command below to use the path to 
 setenv CXX icpc
 ```
 just for your reference
-
+```
 [jhuang@ncaqc2017 ~]$ which icc
 /storage/highspeed/apps/intel/compilers_and_libraries_2017.4.196/linux/bin/intel64/icc
 [jhuang@ncaqc2017 ~]$ which icc
@@ -115,20 +115,16 @@ just for your reference
 /storage/highspeed/apps/intel/compilers_and_libraries_2017.4.196/linux/bin/intel64/icpc
 [jhuang@ncaqc2017 ~]$ which mpirun
 /storage/highspeed/apps/mvapich2-2.2_ifc17/bin/mpirun
-
+```
 Finally, set your installation location netcdf-c-dir (NCDIR)
 ```
 setenv NCDIR /storage/highspeed/apps/netcdf-c-4.7.0-intel17
 ```
-
 7. Run the configure command
-
 ```
 ./configure --prefix=$NCDIR --disable-netcdf-4 --disable-dap
 ```
-
 11. Check that the configure command worked correctly, you can also do make check and make install separately
-
 ```
 make check install |& tee make.install.log.txt
 ```
@@ -138,7 +134,6 @@ make check install |& tee make.install.log.txt
 ```
 | Congratulations! You have successfully installed netCDF!    |
 ```
-
 you can check any error during make by
 
 ```
@@ -268,38 +263,25 @@ flag during linking and do at least one of the following:
    - have your system administrator add LIBDIR to '/etc/ld.so.conf'
 ```
 
-if everything goes well
-
+if everything goes well11
+```
 [jhuang@ncaqc2017 ~]$ which nf-config
 /storage/highspeed/apps/netcdf-fortran-4.4.5-intel17/bin/nf-config
 [jhuang@ncaqc2017 ~]$ nf-config --all
-
 This netCDF-Fortran 4.4.5 has been built with the following features:
-
   --cc        -> /storage/highspeed/apps/intel/compilers_and_libraries_2017.4.196/linux/bin/intel64/icc
-  
   --cflags    ->  -I/storage/highspeed/apps/netcdf-fortran-4.4.5-intel17/include -I/storage/highspeed/apps/netcdf-c-4.7.0-intel17//include
-
   --fc        -> ifort
-  
   --fflags    -> -I/storage/highspeed/apps/netcdf-fortran-4.4.5-intel17/include
-  
   --flibs     -> -L/storage/highspeed/apps/netcdf-fortran-4.4.5-intel17/lib -lnetcdff -L/storage/highspeed/apps/netcdf-c-4.7.0-intel17//lib -lnetcdf -lnetcdf -lhdf5_hl -lhdf5 -lz -lcurl -lm
-  
   --has-f90   -> no
-  
   --has-f03   -> yes
-
   --has-nc2   -> yes
-  
   --has-nc4   -> no
-
   --prefix    -> /storage/highspeed/apps/netcdf-fortran-4.4.5-intel17
-  
   --includedir-> /storage/highspeed/apps/netcdf-fortran-4.4.5-intel17/include
-  
   --version   -> netCDF-Fortran 4.4.5
-
+```
 
 
 15. set your LD_LIBRARY_PATH to include the netcdf-Fortran library path for netCDF build
@@ -311,13 +293,11 @@ setenv LD_LIBRARY_PATH ${NFDIR}/lib:${LD_LIBRARY_PATH}
 (may need to add the NCDIR and NFDIR to .cshrc)
 
 Here are what I added to my .cshrc
-
+```
 setenv PATH './:${PATH}:${HOME}:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/storage/highspeed/apps/bin:/usr/local/aq/opengrads:/storage/highspeed/apps/SMOKEv4.5/subsys/smoke/Linux2_x86_64iforti:/storage/highspeed/apps/netcdf-fortran-4.4.5-intel17/lib:/storage/highspeed/apps/netcdf-c-4.7.0-intel17/lib'
-
 set path = ($path /storage/highspeed/apps/netcdf-fortran-4.4.5-intel17/bin)
-
 set NETCDF_ROOT = /storage/highspeed/apps/netcdf-fortran-4.4.5-intel17/bin
-
+```
 
 ## Install I/O API
 
@@ -432,40 +412,30 @@ cp config_cmaq.csh config_cmaq.csh.orig
 vi config_cmaq.csh
 ```
 modify the following lines
-
+```
  28         setenv CMAQ_REPO /storage/highspeed/JH/CMAQ_REPO
-
  83         setenv IOAPI_INCL_DIR   /storage/highspeed/apps/ioapi-3.2_20190925/ioapi/fixed_src    #> I/O API include head    er files
- 
  84         setenv IOAPI_LIB_DIR    /storage/highspeed/apps/ioapi-3.2_20190925/Linux2_x86_64ifort_intel17    #> I/O API l    ibraries
- 
  85         setenv NETCDF_LIB_DIR   /storage/highspeed/apps/netcdf-c-4.7.0-intel17/lib   #> netCDF C directory path
- 
  86         setenv NETCDF_INCL_DIR  /storage/highspeed/apps/netcdf-c-4.7.0-intel17/include   #> netCDF C directory path
- 
  87         setenv NETCDFF_LIB_DIR  /storage/highspeed/apps/netcdf-fortran-4.4.5-intel17/lib  #> netCDF Fortran directory     path
- 
  88         setenv NETCDFF_INCL_DIR /storage/highspeed/apps/netcdf-fortran-4.4.5-intel17/include  #> netCDF Fortran direc    tory path
- 
  90         setenv MPI_LIB_DIR      /storage/highspeed/apps/mvapich2-2.2_ifc17/      #> MPI directory path
-
  94         setenv myFC mpif90
-
  95         setenv myCC icc
-
+```
  in order to make CMAQ bluid, we have to link some files into specific location
- 
- /storage/highspeed/apps/mvapich2-2.2_ifc17/
- 
+``` 
+/storage/highspeed/apps/mvapich2-2.2_ifc17/
 lrwxrwxrwx 1 root       root         14 Sep 27 18:46 mpif.h -> include/mpif.h
-
 lrwxrwxrwx 1 root       root         13 Sep 27 18:46 mpi.h -> include/mpi.h
+```
 
 otherwise, when you build CMAQ you will see following errors,
-
+```
 catastrophic error: cannot open source file "mpi.h"
-
 Cannot open include file 'mpif.h'
+```
 
 Links to these libraries will automatically be created when you run any of the build or run scripts. To manually create these libraries (this is optional), execute the config_cmaq.csh script, identifying the compiler in the command line [intel | gcc | pgi]:
 ```
@@ -501,11 +471,12 @@ cd $CMAQ_HOME/CCTM/scripts
 ```
 
 if you see this in your log, 
+```
 mv /storage/highspeed/Models/aq/CMAQ/CMAQ_v5.3/CCTM/scripts/BLD_CCTM_v53_intel17/CCTM_v53.cfg /storage/highspeed/Models/aq/CMAQ/CMAQ_v5.3/CCTM/scripts/BLD_CCTM_v53_intel17/CCTM_v53.cfg.old
 endif
 mv CCTM_v53.cfg.bld /storage/highspeed/Models/aq/CMAQ/CMAQ_v5.3/CCTM/scripts/BLD_CCTM_v53_intel17/CCTM_v53.cfg
 exit
-
+```
 and CCTM_v53.exe up-to-date, which means you successfully built CMAQ
 
 
