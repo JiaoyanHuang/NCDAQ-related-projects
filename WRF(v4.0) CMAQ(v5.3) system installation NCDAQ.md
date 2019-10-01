@@ -106,25 +106,15 @@ setenv CXX icpc
 just for your reference
 
 [jhuang@ncaqc2017 ~]$ which icc
-
 /storage/highspeed/apps/intel/compilers_and_libraries_2017.4.196/linux/bin/intel64/icc
-
 [jhuang@ncaqc2017 ~]$ which icc
-
 /storage/highspeed/apps/intel/compilers_and_libraries_2017.4.196/linux/bin/intel64/icc
-
 [jhuang@ncaqc2017 ~]$ which ifort
-
 /storage/highspeed/apps/intel/compilers_and_libraries_2017.4.196/linux/bin/intel64/ifort
-
 [jhuang@ncaqc2017 ~]$ which icpc
-
 /storage/highspeed/apps/intel/compilers_and_libraries_2017.4.196/linux/bin/intel64/icpc
-
 [jhuang@ncaqc2017 ~]$ which mpirun
-
 /storage/highspeed/apps/mvapich2-2.2_ifc17/bin/mpirun
-
 
 Finally, set your installation location netcdf-c-dir (NCDIR)
 ```
