@@ -315,7 +315,7 @@ This netCDF-Fortran 4.4.5 has been built with the following features:
 15. set your LD_LIBRARY_PATH to include the netcdf-Fortran library path for netCDF build
 
 ```
-setenv NFDIR /home/netcdf-fortran-4.4.5-intel18.2
+setenv NFDIR /storage/highspeed/apps/netcdf-fortran-4.4.5-intel17
 setenv LD_LIBRARY_PATH ${NFDIR}/lib:${LD_LIBRARY_PATH}
 ```
 (may need to add the NCDIR and NFDIR to .cshrc)
