@@ -405,3 +405,118 @@ ls -rlt m3xtract
 
 11. After successfull completion of this tutorial, the user is now ready to proceed to the [CMAQ Installation & Benchmarking Tutorial](./CMAQ_UG_tutorial_benchmark.md). 
 
+## Install CMAQv5.3
+Please use this as a reference, https://github.com/JiaoyanHuang/CMAQ/blob/master/DOCS/Users_Guide/Tutorials/CMAQ_UG_tutorial_benchmark.md
+
+I just simpilified the process.
+
+0. important notice
+Message Passing Interface (MPI), e.g., OpenMPI or MVAPICH2.
+Latest release of netCDF-C and netCDF-Fortran built without netCDF4, HDF5, HDF4, DAP client, PnetCDF, or zlib support
+I/O API version 3.2 or later
+
+### download repo
+
+In the directory where you would like to install CMAQ, create the directory issue the following command to clone the EPA GitHub repository for CMAQv5.3: (you can do any location you like, I use my data dir)
+```
+cd /storage/highspeed/JH
+git clone -b master https://github.com/USEPA/CMAQ.git CMAQ_REPO
+cd CMAQ_REPO
+git checkout -b my_branch
+```
+For instructions on installing CMAQ from Zip files, see Chapter 5.
+
+### configure file
+In bldit_project.csh, modify the variable $CMAQ_HOME to identify the folder that you would like to install the CMAQ package under. For example:
+```
+set CMAQ_HOME = /storage/highspeed/Models/aq/CMAQ/CMAQ_v5.3
+```
+Now execute the script.
+```
+./bldit_project.csh
+```
+
+edit configure file under /storage/highspeed/Models/aq/CMAQ/CMAQ_v5.3
+```
+cp config_cmaq.csh config_cmaq.csh.orig
+vi config_cmaq.csh
+```
+modify the following lines
+
+ 28         setenv CMAQ_REPO /storage/highspeed/JH/CMAQ_REPO
+
+ 83         setenv IOAPI_INCL_DIR   /storage/highspeed/apps/ioapi-3.2_20190925/ioapi/fixed_src    #> I/O API include head    er files
+ 
+ 84         setenv IOAPI_LIB_DIR    /storage/highspeed/apps/ioapi-3.2_20190925/Linux2_x86_64ifort_intel17    #> I/O API l    ibraries
+ 
+ 85         setenv NETCDF_LIB_DIR   /storage/highspeed/apps/netcdf-c-4.7.0-intel17/lib   #> netCDF C directory path
+ 
+ 86         setenv NETCDF_INCL_DIR  /storage/highspeed/apps/netcdf-c-4.7.0-intel17/include   #> netCDF C directory path
+ 
+ 87         setenv NETCDFF_LIB_DIR  /storage/highspeed/apps/netcdf-fortran-4.4.5-intel17/lib  #> netCDF Fortran directory     path
+ 
+ 88         setenv NETCDFF_INCL_DIR /storage/highspeed/apps/netcdf-fortran-4.4.5-intel17/include  #> netCDF Fortran direc    tory path
+ 
+ 90         setenv MPI_LIB_DIR      /storage/highspeed/apps/mvapich2-2.2_ifc17/      #> MPI directory path
+
+ 94         setenv myFC mpif90
+
+ 95         setenv myCC icc
+
+ in order to make CMAQ bluid, we have to link some files into specific location
+ 
+ /storage/highspeed/apps/mvapich2-2.2_ifc17/
+ 
+lrwxrwxrwx 1 root       root         14 Sep 27 18:46 mpif.h -> include/mpif.h
+
+lrwxrwxrwx 1 root       root         13 Sep 27 18:46 mpi.h -> include/mpi.h
+
+otherwise, when you build CMAQ you will see following errors,
+
+catastrophic error: cannot open source file "mpi.h"
+
+Cannot open include file 'mpif.h'
+
+Links to these libraries will automatically be created when you run any of the build or run scripts. To manually create these libraries (this is optional), execute the config_cmaq.csh script, identifying the compiler in the command line [intel | gcc | pgi]:
+```
+source config_cmaq.csh intel 17
+```
+### download benchmark data 
+download benchmark data to $CMAQ_DATA /storage/highspeed/Models/aq/CMAQ/CMAQ_v5.3/data. you can use gdown or gdrive, see instruciton here https://docs.google.com/document/d/16yKV30xgXnfH7_tFDHvFLN2vykdv3V8OmYxknQ_VH9Y/edit. data are here, https://drive.google.com/drive/folders/1wvz0jQuqnuT8RNj_EMuLec154-rFXucv.
+```
+cd $CMAQ_DATA
+tar xvzf CMAQv5.3_Benchmark_2Day_Input.tar.gz
+tar xvzf CMAQv5.3_Benchmark_2Day_Output.tar.gz
+```
+you will see two dirs
+
+2016_12SE1 and CMAQv5.3_Benchmark_2Day_Output
+
+### compiling CMAQ
+
+```
+cd /storage/highspeed/Models/aq/CMAQ/CMAQ_v5.3/CCTM/scripts
+cp bldit_cctm.csh bldit_cctm.csh.orig
+vi bldit_cctm.csh
+```
+Configuration for multi-processor runs (default):
+```
+set ParOpt #>  Option for MPI Runs
+```
+
+Following the requisite changes to the CCTM build script, use the following command to create the CCTM executable:
+```
+cd $CMAQ_HOME/CCTM/scripts
+./bldit_cctm.csh intel 17 |& tee bldit.cctm.log
+```
+
+if you see this in your log, 
+mv /storage/highspeed/Models/aq/CMAQ/CMAQ_v5.3/CCTM/scripts/BLD_CCTM_v53_intel17/CCTM_v53.cfg /storage/highspeed/Models/aq/CMAQ/CMAQ_v5.3/CCTM/scripts/BLD_CCTM_v53_intel17/CCTM_v53.cfg.old
+endif
+mv CCTM_v53.cfg.bld /storage/highspeed/Models/aq/CMAQ/CMAQ_v5.3/CCTM/scripts/BLD_CCTM_v53_intel17/CCTM_v53.cfg
+exit
+
+and CCTM_v53.exe up-to-date, which means you successfully built CMAQ
+
+
+
