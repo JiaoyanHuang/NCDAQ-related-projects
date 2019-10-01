@@ -106,14 +106,23 @@ setenv CXX icpc
 just for your reference
 
 [jhuang@ncaqc2017 ~]$ which icc
+
 /storage/highspeed/apps/intel/compilers_and_libraries_2017.4.196/linux/bin/intel64/icc
+
 [jhuang@ncaqc2017 ~]$ which icc
+
 /storage/highspeed/apps/intel/compilers_and_libraries_2017.4.196/linux/bin/intel64/icc
+
 [jhuang@ncaqc2017 ~]$ which ifort
+
 /storage/highspeed/apps/intel/compilers_and_libraries_2017.4.196/linux/bin/intel64/ifort
+
 [jhuang@ncaqc2017 ~]$ which icpc
+
 /storage/highspeed/apps/intel/compilers_and_libraries_2017.4.196/linux/bin/intel64/icpc
+
 [jhuang@ncaqc2017 ~]$ which mpirun
+
 /storage/highspeed/apps/mvapich2-2.2_ifc17/bin/mpirun
 
 
@@ -278,19 +287,27 @@ if everything goes well
 This netCDF-Fortran 4.4.5 has been built with the following features:
 
   --cc        -> /storage/highspeed/apps/intel/compilers_and_libraries_2017.4.196/linux/bin/intel64/icc
+  
   --cflags    ->  -I/storage/highspeed/apps/netcdf-fortran-4.4.5-intel17/include -I/storage/highspeed/apps/netcdf-c-4.7.0-intel17//include
 
   --fc        -> ifort
+  
   --fflags    -> -I/storage/highspeed/apps/netcdf-fortran-4.4.5-intel17/include
+  
   --flibs     -> -L/storage/highspeed/apps/netcdf-fortran-4.4.5-intel17/lib -lnetcdff -L/storage/highspeed/apps/netcdf-c-4.7.0-intel17//lib -lnetcdf -lnetcdf -lhdf5_hl -lhdf5 -lz -lcurl -lm
+  
   --has-f90   -> no
+  
   --has-f03   -> yes
 
   --has-nc2   -> yes
+  
   --has-nc4   -> no
 
   --prefix    -> /storage/highspeed/apps/netcdf-fortran-4.4.5-intel17
+  
   --includedir-> /storage/highspeed/apps/netcdf-fortran-4.4.5-intel17/include
+  
   --version   -> netCDF-Fortran 4.4.5
 
 
@@ -308,6 +325,7 @@ Here are what I added to my .cshrc
 setenv PATH './:${PATH}:${HOME}:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/storage/highspeed/apps/bin:/usr/local/aq/opengrads:/storage/highspeed/apps/SMOKEv4.5/subsys/smoke/Linux2_x86_64iforti:/storage/highspeed/apps/netcdf-fortran-4.4.5-intel17/lib:/storage/highspeed/apps/netcdf-c-4.7.0-intel17/lib'
 
 set path = ($path /storage/highspeed/apps/netcdf-fortran-4.4.5-intel17/bin)
+
 set NETCDF_ROOT = /storage/highspeed/apps/netcdf-fortran-4.4.5-intel17/bin
 
 
