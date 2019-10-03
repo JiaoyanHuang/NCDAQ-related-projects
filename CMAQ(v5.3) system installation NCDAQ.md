@@ -263,7 +263,7 @@ flag during linking and do at least one of the following:
    - have your system administrator add LIBDIR to '/etc/ld.so.conf'
 ```
 
-if everything goes well11
+if everything goes well
 ```
 [jhuang@ncaqc2017 ~]$ which nf-config
 /storage/highspeed/apps/netcdf-fortran-4.4.5-intel17/bin/nf-config
