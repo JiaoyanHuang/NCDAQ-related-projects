@@ -355,8 +355,8 @@ mkdir $BIN
 
 ```
 cd $BIN
-ln -s /home/netcdf-c-4.7.0-intel18.2/libnetcdf.a
-ln -s /home/netcdf-fortran-4.4.5-intel18.2/libnetcdffa
+ln -s /storage/highspeed/apps/netcdf-c-4.7.0-intel17/lib/libnetcdf.a
+ln -s /storage/highspeed/apps/netcdf-fortran-4.4.5-intel17/lib/libnetcdff.a
 ```
 
 9. Run the make command to compile and link the ioapi library
