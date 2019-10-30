@@ -92,6 +92,8 @@ evalutions are OK.
 ```
 ftp://newftp.epa.gov/air/emismod/2016/
 
+https://www.epa.gov/sites/production/files/2019-09/documents/2016v7.2_regionalhaze_emismod_tsd_508.pdf
+
 2016 EMP related files can be downloaded from 
 https://views.cira.colostate.edu/iwdw/RequestData/Default.aspx
 
