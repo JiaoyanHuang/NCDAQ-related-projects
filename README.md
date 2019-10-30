@@ -92,4 +92,8 @@ evalutions are OK.
 ```
 ftp://newftp.epa.gov/air/emismod/2016/
 
+2016 EMP related files can be downloaded from 
+https://views.cira.colostate.edu/iwdw/RequestData/Default.aspx
+
+by 20191030 v1 MCIP, BC, IC for 12US2 are ready. and most input and output data for beta are ready.
 
