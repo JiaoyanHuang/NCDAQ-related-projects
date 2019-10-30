@@ -82,4 +82,14 @@ evalutions are OK.
 
 ## SMOKE
 
+### SMOKE4.7
+/storage/highspeed/apps/SMOKEv4.7
+
+
 ## NEI2016
+```
+/storage/highspeed/JH/EMP_2016_beta/newftp.epa.gov/air/emismod/2016/beta
+```
+ftp://newftp.epa.gov/air/emismod/2016/
+
+
