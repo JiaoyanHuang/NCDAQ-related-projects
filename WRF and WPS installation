@@ -16,7 +16,6 @@ icc -c -m64 TEST_4_fortran+c_c.c
 ifort -c -m64 TEST_4_fortran+c_f.f90
 ifort -m64 TEST_4_fortran+c_f.o TEST_4_fortran+c_c.o
 ./a.out
-
 ./TEST_csh.csh
 ./TEST_perl.pl
 ./TEST_sh.sh
@@ -44,4 +43,13 @@ mpicc -c 02_fortran+c+netcdf+mpi_c.c
 mpif90 02_fortran+c+netcdf+mpi_f.o 02_fortran+c+netcdf+mpi_c.o -L${NETCDF}/lib -lnetcdff -lnetcdf
 mpirun ./a.out
 ```
+
+## Building WRF
+```
+./configure
+```
+em_real (3d real case)
+18. (serial)
+
+./compile case_name >& log.compile
 
