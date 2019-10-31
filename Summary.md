@@ -4,6 +4,11 @@
 17.  Linux x86_64, Intel compiler    (serial)
 
 http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php
+```
+/storage/highspeed/JH/WPS
+/storage/highspeed/apps/grib2_20191031
+/storage/highspeed/JH/WRF
+```
 
 WRF 4.0 has been built but not tested using benchmark
 
