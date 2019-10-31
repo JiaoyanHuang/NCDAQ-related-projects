@@ -1,9 +1,10 @@
 # Summary of CMAQ related projected
 
 ### WPS and WRF
+17.  Linux x86_64, Intel compiler    (serial)
 WRF 4.0 has been built but not tested using benchmark
 
-WPS 4.0 has not been built
+WPS 4.0 has been built but not tested using benchmark
 ### MCIP
 MCIP 5.0 has been built
 ### Boudnary and initial conditions
