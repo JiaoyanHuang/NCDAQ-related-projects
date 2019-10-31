@@ -2,6 +2,9 @@
 
 ### WPS and WRF
 17.  Linux x86_64, Intel compiler    (serial)
+
+http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php
+
 WRF 4.0 has been built but not tested using benchmark
 
 WPS 4.0 has been built but not tested using benchmark
