@@ -1,7 +1,7 @@
-WRF(v4.0) CMAQ(v5.3) system installation
+CMAQ(v5.3) system installation
 ======
 
-How to install WRF CMAQ related libs and programs in NCDAQ cluster computer
+How to install CMAQ related libs and programs in NCDAQ cluster computer
 
 This guidence is based on following websites
 
