@@ -1,4 +1,6 @@
 How to process 2016 EMP data into CMAQ ready data files.
+
+https://www.epa.gov/sites/production/files/2018-08/documents/2014v7.1_2014_emismod_tsd.pdf
 ## Data download
 ftp://newftp.epa.gov/air/emismod/2016/v1/
 
