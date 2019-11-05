@@ -61,4 +61,8 @@ setenv JASPERLIB /storage/highspeed/apps/grib2_20191031/lib
 setenv JASPERINC /storage/highspeed/apps/grib2_20191031/include
 ./configure
 ./compile >& log.compile
+
+lrwxrwxrwx 1 jhuang hpc 23 Oct 31 18:53 geogrid.exe -> geogrid/src/geogrid.exe
+lrwxrwxrwx 1 jhuang hpc 23 Oct 31 18:53 metgrid.exe -> metgrid/src/metgrid.exe
+lrwxrwxrwx 1 jhuang hpc 21 Oct 31 18:53 ungrib.exe -> ungrib/src/ungrib.exe
 ```
