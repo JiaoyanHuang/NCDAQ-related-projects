@@ -374,6 +374,12 @@ ls -rlt m3xtract
 
 11. After successfull completion of this tutorial, the user is now ready to proceed to the [CMAQ Installation & Benchmarking Tutorial](./CMAQ_UG_tutorial_benchmark.md). 
 
+you might want to add ioapi into your .cshrc  
+```
+set path = ($path /storage/highspeed/apps/ioapi-3.2_20190925/Linux2_x86_64ifort_intel17)
+set IOAPI_ROOT = /storage/highspeed/apps/ioapi-3.2_20190925/Linux2_x86_64ifort_intel17
+```
+
 ## Install CMAQv5.3
 Please use this as a reference, https://github.com/JiaoyanHuang/CMAQ/blob/master/DOCS/Users_Guide/Tutorials/CMAQ_UG_tutorial_benchmark.md
 
