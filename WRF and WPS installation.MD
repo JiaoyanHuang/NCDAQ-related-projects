@@ -50,9 +50,9 @@ mpirun ./a.out
 ```
 em_real (3d real case)
 18. (serial)
-
+```
 ./compile case_name >& log.compile
-
+```
 ## Building WPS
 ```
 cd WPS
