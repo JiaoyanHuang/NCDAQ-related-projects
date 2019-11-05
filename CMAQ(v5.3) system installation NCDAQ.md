@@ -107,8 +107,6 @@ just for your reference
 ```
 [jhuang@ncaqc2017 ~]$ which icc
 /storage/highspeed/apps/intel/compilers_and_libraries_2017.4.196/linux/bin/intel64/icc
-[jhuang@ncaqc2017 ~]$ which icc
-/storage/highspeed/apps/intel/compilers_and_libraries_2017.4.196/linux/bin/intel64/icc
 [jhuang@ncaqc2017 ~]$ which ifort
 /storage/highspeed/apps/intel/compilers_and_libraries_2017.4.196/linux/bin/intel64/ifort
 [jhuang@ncaqc2017 ~]$ which icpc
