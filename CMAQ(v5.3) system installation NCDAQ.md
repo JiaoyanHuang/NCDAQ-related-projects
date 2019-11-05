@@ -24,7 +24,7 @@ https://blog.chenzhang.org/post/gis/cmaq-installation/
 
 created by Joey Huang 2019/10/01
 
-0. Make sure you have fortran compiler ready, here are what I have in my .cshrc, you can add these manually, but I suggest to have all these in .cshrc. You will also have to update these based you the most current intel compiler we have on the cluster.
+0. Make sure you have fortran compiler ready, here are what I have in my .cshrc, you can add these manually, but I suggest to have all these in .cshrc. You will also have to update these based on the most current intel compiler we have on the cluster.
 ```
 ##INTEL v17.0.4
 setenv INTEL_DIR /storage/highspeed/apps/intel
