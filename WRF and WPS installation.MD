@@ -53,3 +53,12 @@ em_real (3d real case)
 
 ./compile case_name >& log.compile
 
+## Building WPS
+```
+cd WPS
+./clean
+setenv JASPERLIB /storage/highspeed/apps/grib2_20191031/lib
+setenv JASPERINC /storage/highspeed/apps/grib2_20191031/include
+./configure
+./compile >& log.compile
+```
