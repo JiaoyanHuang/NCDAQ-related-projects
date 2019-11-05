@@ -131,3 +131,11 @@ scripts/merge/Sector_merge_12US1_2016ff_16j.csh
 ## 4km NC
 ### generate MCIP files
 ### how to nest domain
+### tools
+<pre>
+IOAPI
+     m3wndw
+     m3mask
+</pre>
+Domain Wizard
+https://esrl.noaa.gov/gsd/wrfportal/DomainWizard.html
