@@ -136,10 +136,19 @@ you have to make sure BASEDIR, OUTDIR, MET_ROOT are the location you want
 then it will generate the combine file and create metfile_list
  
 use m3shift to generate a day before and after, or if you have the real MET files, they should work as well.
+```
+setenv INFILE METCOMBO_161231
+setenv OUTFILE METCOMBO_170101
+m3tshift
+```
 
 add two lines in the metfile_list, a day before and a day after, example
+
+you have to manually add the first and the last line in metfile_list.12US2_16j.txt if you want to generate 2016010 to 20161231 data
 ```
 /storage/highspeed/JH/EMP_2016_beta/newftp.epa.gov/air/emismod/2016/beta/met2moves/12US2_16j/METCOMBO_151231
+...
+...
 /storage/highspeed/JH/EMP_2016_beta/newftp.epa.gov/air/emismod/2016/beta/met2moves/12US2_16j/METCOMBO_170101
 ```
 then 
@@ -176,45 +185,6 @@ run
 ```
 scripts/merge/Sector_merge_12US1_2016ff_16j.csh
 ```
-make sure following variables are all good
-```
-# Input files
-# Base dir
-setenv BASEDIR /storage/highspeed/JH/EMP_2016_beta/newftp.epa.gov/air/emismod/2016/beta/met2moves
-setenv GE_DAT /storage/highspeed/JH/EMP_2016_beta/newftp.epa.gov/air/emismod/2016/beta/2016emissions/ge_dat
-setenv MCXREF $GE_DAT/onroad/MCXREF_2014v2_10jul2017_v0
-setenv MFMREF $GE_DAT/onroad/MFMREF_2014v2_10jul2017_v0
-#setenv SRGPRO_PATH $GE_DAT/gridding/surrogates/CONUS12_2014_v1.3_29nov2016
-setenv SRGPRO_PATH $GE_DAT/gridding/surrogates/CONUS12_2014_03dec2018
-#setenv SRGDESC $GE_DAT/gridding/srgdesc_CONUS12_2014_v1_3_29nov2016_18apr2017_v0.txt
-setenv SRGDESC $GE_DAT/gridding/srgdesc_CONUS12_2014_v1_3_29nov2016_13oct2017_v1.txt
-#setenv COSTCY $GE_DAT/costcy_for_2007platform_25may2017_v21.txt
-setenv COSTCY $GE_DAT/costcy_for_2007platform_28nov2018_nf_v23.txt
-#setenv GRIDDESC $GE_DAT/gridding/griddesc_lambertonly_18sep2015_v64.txt
-setenv GRIDDESC $GE_DAT/gridding/griddesc_lambertonly_29nov2018_nf_v7.txt
-
-setenv METLIST  $BASEDIR/metfile_list.${GRID}_${METABBREV}.txt
-```
-This means you starting date and ending date, but it needs the data a day before and after 
-```
-setenv STDATE ${YEAR}001               # Starting date in Julian
-setenv ENDATE ${YEAR}366               # Ending date in Julian (should be 366 for leap year)
-```
-I just use m3tshift to generate this data, if you have actual data, you can use them as well
-```
-setenv INFILE METCOMBO_161231
-setenv OUTFILE METCOMBO_170101
-m3tshift
-```
-you have to manually add the first and the last line in metfile_list.12US2_16j.txt if you want to generate 2016010 to 20161231 data
-/storage/highspeed/JH/EMP_2016_beta/newftp.epa.gov/air/emismod/2016/beta/met2moves/12US2_16j/METCOMBO_151231
-...
-...
-/storage/highspeed/JH/EMP_2016_beta/newftp.epa.gov/air/emismod/2016/beta/met2moves/12US2_16j/METCOMBO_170101
-
-
-
-
 
 ## 4km NC
 ### generate MCIP files
