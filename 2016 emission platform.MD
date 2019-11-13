@@ -133,10 +133,43 @@ you have to make sure BASEDIR, OUTDIR, MET_ROOT are the location you want
 ```
 ./run_metcombine_2016j_12US2.csh | & tee run_metcombine_2016j_12US2.log
 ```
+then it will generate the combine file and create metfile_list
+ 
+use m3shift to generate a day before and after, or if you have the real MET files, they should work as well.
+
+add two lines in the metfile_list, a day before and a day after, example
+```
+/storage/highspeed/JH/EMP_2016_beta/newftp.epa.gov/air/emismod/2016/beta/met2moves/12US2_16j/METCOMBO_151231
+/storage/highspeed/JH/EMP_2016_beta/newftp.epa.gov/air/emismod/2016/beta/met2moves/12US2_16j/METCOMBO_170101
+```
 then 
 ```
+setenv YEAR 2016
+
+setenv BASEDIR /storage/highspeed/JH/EMP_2016_beta/newftp.epa.gov/air/emismod/2016/beta/met2moves
+setenv GE_DAT /storage/highspeed/JH/EMP_2016_beta/newftp.epa.gov/air/emismod/2016/beta/2016emissions/ge_dat
+
 vi run_met4moves_2016j_v2_12US2.csh
 ```
+make sure following vars are correct:
+```
+
+setenv STDATE ${YEAR}001               # Starting date in Julian
+setenv ENDATE ${YEAR}366               # Ending date in Julian (should be 366 for leap year)
+```
+This will then generate 
+```
+SMOKE_DAILY_2016fc_v2_16j_12US2_2016001-2016366.ncf
+```
+this is ready for onroad SMOKE-MOVES run
+
+we have to run RPV/RPP/RPD/RPH seperately, 
+```
+RPH 12 months take  4 hours
+RPP 1  month  takes 5 hours
+RPV 1  month  takes 15 hours
+```
+Therefore, I separated running these onroad scripts, you can adjust these scripts for different months.
 
 ## merge data
 run 
