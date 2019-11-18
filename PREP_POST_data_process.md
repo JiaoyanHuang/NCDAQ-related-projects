@@ -5,7 +5,7 @@ https://github.com/USEPA/CMAQ/tree/master/PREP
 ## MCIP
 source files are located in /storage/highspeed/JH/CMAQ_REPO_v5.3/PREP/mcip/src
 ```
-cd /storage/highspeed/JH/CMAQ_REPO_v5.3/PREP/mcip/src
+cd /storage/highspeed/Models/aq/CMAQ/CMAQ_v5.3/PREP/mcip/src
 vi Makefile
 ```
 in makefile
