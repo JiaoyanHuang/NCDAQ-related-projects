@@ -188,6 +188,7 @@ scripts/merge/Sector_merge_12US1_2016ff_16j.csh
 
 ## 4km NC
 ```
+/storage/highspeed/JH/EMP_2016/newftp.epa.gov/air/emismod/2016/v1/ge_dat/griddinggriddesc_lambertonly_18jan2019_v7.txt
 '4NC1_219X147', ! 4km North Carolina grid for C40
 '12CONUS1', 1128000.000, -552000.000, 4000.000, 4000.000, 219, 147, 1
 '1NCSE1_188X204', ! 1km North Carolina grid for C40
@@ -195,6 +196,11 @@ scripts/merge/Sector_merge_12US1_2016ff_16j.csh
 
 GRID-NAME
 COORD-NAME, XORIG, YORIG, XCELL, YCELL, NCOLS, NROWS, NTHIK
+
+'4NC2', ! 4km North Carolina 201x114 for Kirk Baker WO 120.2
+'LAM_40N97W', 1224000.0, -576000.0, 4000.0, 4000.0, 201, 114, 1
+'1RTP1', ! 1km North Carolina 108x60 domain for Kirk Baker WO 120.2
+'LAM_40N97W', 1584000.0, -324000.0, 1000.0, 1000.0, 108, 60, 1
 
 ```
 ### generate MCIP files
