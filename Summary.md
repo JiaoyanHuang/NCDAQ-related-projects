@@ -32,6 +32,14 @@ v5.3, v5.3ISAM have been built and evaluated with benchmark
 ### post process tools
 appendwrf  bldoverlay  block_extract  calc_tmetric  combine  hr2day  sitecmp  sitecmp_dailyo3  writesite have been built and most of them have been tested
 
+### NC nesting
+```
+'4NC1_219X147', ! 4km North Carolina grid for C40
+'12CONUS1', 1128000.000, -552000.000, 4000.000, 4000.000, 219, 147, 1
+'1NCSE1_188X204', ! 1km North Carolina grid for C40
+'12CONUS1', 1586000.000, -466000.000, 1000.000, 1000.000, 188, 204, 1
+```
+
 ### model evalution tools
 AMET1.4 has been built, but I have not fully tested AMET1.4. It currently has SQL server issue (I have reported this to EPA and UNC IE).
 ```
