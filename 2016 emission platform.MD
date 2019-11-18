@@ -187,6 +187,12 @@ scripts/merge/Sector_merge_12US1_2016ff_16j.csh
 ```
 
 ## 4km NC
+```
+'4NC1_219X147', ! 4km North Carolina grid for C40
+'12CONUS1', 1128000.000, -552000.000, 4000.000, 4000.000, 219, 147, 1
+'1NCSE1_188X204', ! 1km North Carolina grid for C40
+'12CONUS1', 1586000.000, -466000.000, 1000.000, 1000.000, 188, 204, 1
+```
 ### generate MCIP files
 ### how to nest domain
 ### tools
