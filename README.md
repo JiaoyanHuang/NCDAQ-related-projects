@@ -61,8 +61,22 @@ However, there is an evalution issue, we have to update intel fortran compiler t
 https://forum.cmascenter.org/t/cmaq-benchmark-differences/475
 
 CMAQ APT has been built and an issued found related to SCICHEM (dispersion model) files:
+```
+ indir:
+ /storage/highspeed/Models/aq/CMAQ/CMAQv5.0.2/data/apt/CMAQv5.0.2/data/scichemin
+ p
+ outdir:
+ /storage/highspeed/Models/aq/CMAQ/CMAQv5.0.2/data/apt/CMAQv5.0.2/data/cctm/2005
+ 179
+ rstdir:
 
-https://forum.cmascenter.org/t/cmaq-v5-0-2-apt-installation-issue/1077
+
+ ******ERROR******
+ Routine=init_scichem
+ Error opening SCICHEM log output file
+ File=/storage/highspeed/Models/aq/CMAQ/CMAQv5.0.2/data/apt/CMAQv5.0.2/data/cctm
+ /2005179/cmaqapt50.log
+```
 
 please contact Prakash Karamchandani at Ramboll (pkaramchandani@ramboll.com)
 ### CMAQv5.2
