@@ -122,7 +122,7 @@ setenv NCDIR /storage/highspeed/apps/netcdf-c-4.7.0-intel17
 ```
 ./configure --prefix=$NCDIR --disable-netcdf-4 --disable-dap
 ```
-11. Check that the configure command worked correctly, you can also do make check and make install separately
+11. Check the configure command work correctly, you can also do make check and make install separately
 ```
 make check install |& tee make.install.log.txt
 ```
@@ -187,6 +187,8 @@ setenv FC ifort
 Find the path to the CXX compiler on your system using the which command
 ```
 which icpc
+
+setenv CXX icpc
 ```
 
 8. Set your LD_LIBRARY_PATH to include the netcdf-C library path for netCDF build
