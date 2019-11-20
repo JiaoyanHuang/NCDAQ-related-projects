@@ -60,10 +60,11 @@ However, there is an evalution issue, we have to update intel fortran compiler t
 
 https://forum.cmascenter.org/t/cmaq-benchmark-differences/475
 
-CMAQ APT cannot be built due to makefile issue:
+CMAQ APT has been built and an issued found related to SCICHEM (dispersion model) files:
 
 https://forum.cmascenter.org/t/cmaq-v5-0-2-apt-installation-issue/1077
 
+please contact Prakash Karamchandani at Ramboll (pkaramchandani@ramboll.com)
 ### CMAQv5.2
 CMAQ 5.2 and CMAQ DDM have been built in
 
@@ -89,6 +90,7 @@ evalutions are OK.
 
 ## NEI2016
 ```
+/storage/highspeed/JH/EMP_2016/newftp.epa.gov/air/emismod/2016/v1/2016emissions/2016fh_16j
 /storage/highspeed/JH/EMP_2016_beta/newftp.epa.gov/air/emismod/2016/beta
 ```
 ftp://newftp.epa.gov/air/emismod/2016/
@@ -98,5 +100,7 @@ https://www.epa.gov/sites/production/files/2019-09/documents/2016v7.2_regionalha
 2016 EMP related files can be downloaded from 
 https://views.cira.colostate.edu/iwdw/RequestData/Default.aspx
 
-by 20191030 v1 MCIP, BC, IC for 12US2 are ready. and most input and output data for beta are ready.
+by 20191030 EMP v1, MCIP, BC, IC for 12US2 are ready. 
+
+20191120 EMP v1 pre merge data are ready on NCDAQ cluster with some minor errors (cannot adjust please see https://forum.cmascenter.org/t/2016-emission-platform-v1-adjust-sectors/1126).
 
