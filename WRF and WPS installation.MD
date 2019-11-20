@@ -1,5 +1,12 @@
 How to install WRF related libs and programs in NCDAQ cluster computer
 
+http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php
+```
+/storage/highspeed/JH/WPS
+/storage/highspeed/JH/WRF
+```
+
+
 This guidence is based on following websites
 
 http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php
