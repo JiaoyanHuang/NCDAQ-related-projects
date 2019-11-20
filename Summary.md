@@ -43,7 +43,7 @@ COORD-NAME, XORIG, YORIG, XCELL, YCELL, NCOLS, NROWS, NTHIK
 ```
 
 ### model evalution tools 
-**EPA released a updated package in Nov, the whole program needs to be rebuilt**
+**EPA released a updated package in Nov 2019, the whole program needs to be rebuilt.** 
 AMET1.4 has been built, but I have not fully tested AMET1.4. It currently has SQL server issue (I have reported this to EPA and UNC IE).
 ```
 /storage/highspeed/JH/AMET_v14
