@@ -41,6 +41,8 @@ COORD-NAME, XORIG, YORIG, XCELL, YCELL, NCOLS, NROWS, NTHIK
 '1RTP1', ! 1km North Carolina 108x60 domain for Kirk Baker WO 120.2
 'LAM_40N97W', 1584000.0, -324000.0, 1000.0, 1000.0, 108, 60, 1
 ```
+surrogate files
+https://www3.epa.gov/ttn/chief/conference/ei15/session9/eyth.pdf
 
 ### model evalution tools 
 **EPA released a updated package in Nov 2019, the whole program needs to be rebuilt.** 
