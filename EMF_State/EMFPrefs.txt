@@ -1,0 +1,66 @@
+#EMF Client/Installer - Preferences
+#comments '#'
+#preference specified by key,value pair separted by '='
+#case sensitive
+#white spaces and line terminators can be escaped by ''
+#If the value aren't specified then default value will be empty string
+#Use '/' for path separator for file names
+
+web.site=http://www.ie.unc.edu/cempd/projects/emf/install/
+emf.install.folder=C:/emf-install
+server.import.folder=/oaqps/share/import
+server.export.folder=/oaqps/share/export
+server.address=http://localhost:8080/emf/services
+java.home=C:/Program Files/Java/jre6
+r.home=C:/Program Files/R/rw2000/bin
+
+View_QA_results_limit=1000
+
+
+#Analysis Engine Preferences
+format.double.decimal_places=2
+format.double.option=Standard_Notation
+#legal options: Standard_Notation,Scientific_Notation, Dollars, Percentage, Custom
+format.double.significant_digits=0
+ORL_Point_Inventory_(PTINV)_column_order=fips,plantid,pointid,stackid,segment,plant,scc,erptype,srctype,stkhgt,stkdiam,stktemp,stkflow,stkvel,sic,mact,naics,ctype,xloc,yloc,utmz,poll,ann_emis,avd_emis,ceff,reff,cpri,csec,nei_unique_id,oris_facility_code,oris_boiler_id,ipm_yn,data_source,stack_default_flag,location_default_flag,year,tribal_code,horizontal_area_fugitive,release_height_fugitive,zipcode,naics_flag,sic_flag,mact_flag,process_mact_compliance_status,ipm_facility,ipm_unit,bart_source,bart_unit,control_status,start_date,end_date,winter_throughput_pct,spring_throughput_pct,summer_throughput_pct,fall_throughput_pct,annual_avg_days_per_week,annual_avg_weeks_per_year,annual_avg_hours_per_day,annual_avg_hours_per_year,period_days_per_week,period_weeks_per_period,period_hours_per_day,period_hours_per_period,design_capacity,design_capacity_unit_numerator,design_capacity_unit_denominator,control_measures,pct_reduction,current_cost,cumulative_cost,comments,record_id,version,delete_versions
+ORL_Point_Inventory_(PTINV)_column_hidden=
+Flat_File_2010_Point_column_order=country_cd,region_cd,tribal_code,facility_id,unit_id,rel_point_id,process_id,agy_facility_id,agy_unit_id,agy_rel_point_id,agy_process_id,scc,poll,ann_value,ann_pct_red,facility_name,erptype,stkhgt,stkdiam,stktemp,stkflow,stkvel,naics,longitude,latitude,ll_datum,horiz_coll_mthd,design_capacity,design_capacity_units,reg_codes,fac_source_type,unit_type_code,control_ids,control_measures,current_cost,cumulative_cost,projection_factor,submitter_id,calc_method,data_set_id,facil_category_code,oris_facility_code,oris_boiler_id,ipm_yn,calc_year,date_updated,fug_height,fug_width_ydim,fug_length_xdim,fug_angle,zipcode,annual_avg_hours_per_year,jan_value,feb_value,mar_value,apr_value,may_value,jun_value,jul_value,aug_value,sep_value,oct_value,nov_value,dec_value,jan_pctred,feb_pctred,mar_pctred,apr_pctred,may_pctred,jun_pctred,jul_pctred,aug_pctred,sep_pctred,oct_pctred,nov_pctred,dec_pctred,comment,comments,record_id,version,delete_versions
+Flat_File_2010_Point_column_hidden=
+Projection_Packet_Extended_column_order=country_cd,region_cd,facility_id,unit_id,rel_point_id,process_id,tribal_code,census_tract_cd,shape_id,emis_type,scc,poll,reg_code,sic,naics,ann_proj_factor,jan_proj_factor,feb_proj_factor,mar_proj_factor,apr_proj_factor,may_proj_factor,jun_proj_factor,jul_proj_factor,aug_proj_factor,sep_proj_factor,oct_proj_factor,nov_proj_factor,dec_proj_factor,comment,comments,record_id,version,delete_versions
+Projection_Packet_Extended_column_hidden=
+Control_Packet_column_order=fips,scc,poll,pri_cm_abbrev,ceff,reff,rpen,sic,application_control,mact,replacement,plantid,pointid,stackid,segment,compliance_date,naics,record_id,comments,version,delete_versions
+Control_Packet_column_hidden=
+Control_Strategy_Detailed_Result_column_order=disable,cm_abbrev,poll,scc,fips,adj_factor,control_ids,inv_ctrl_eff,inv_rule_pen,inv_rule_eff,final_emissions,emis_reduction,inv_emissions,apply_order,input_emis,output_emis,fipsst,fipscty,sic,naics,source_id,input_ds_id,cs_id,cm_id,equation_type,original_dataset_id,sector,control_program,xloc,yloc,plant,replacement_addon,existing_measure_abbreviation,existing_primary_device_type_code,strategy_name,control_technology,source_group,county_name,state_name,scc_l1,scc_l2,scc_l3,scc_l4,jan_final_emissions,feb_final_emissions,mar_final_emissions,apr_final_emissions,may_final_emissions,jun_final_emissions,jul_final_emissions,aug_final_emissions,sep_final_emissions,oct_final_emissions,nov_final_emissions,dec_final_emissions,jan_pct_red,feb_pct_red,mar_pct_red,apr_pct_red,may_pct_red,jun_pct_red,jul_pct_red,aug_pct_red,sep_pct_red,oct_pct_red,nov_pct_red,dec_pct_red,annual_cost_3pct,ann_cost_per_ton_3pct,annualized_capital_cost_3pct,comment,record_id,version,delete_versions,target_poll
+Control_Strategy_Detailed_Result_column_hidden=plantid,pointid,stackid,segment,annual_cost,ann_cost_per_ton,annual_oper_maint_cost,annual_variable_oper_maint_cost,annual_fixed_oper_maint_cost,annualized_capital_cost,total_capital_cost,control_eff,rule_pen,rule_eff,percent_reduction
+Strategy_Messages_(CSV)_column_order=fips,scc,plantid,pointid,stackid,segment,poll,status,control_program,message_type,message,inventory,packet_fips,packet_scc,packet_plantid,packet_pointid,packet_stackid,packet_segment,packet_poll,packet_sic,packet_mact,packet_naics,packet_compliance_effective_date,packet_replacement,packet_annual_monthly,comments,record_id,version,delete_versions
+Strategy_Messages_(CSV)_column_hidden=
+Flat_File_2010_Nonpoint_column_order=country_cd,region_cd,tribal_code,census_tract_cd,shape_id,scc,emis_type,poll,ann_value,ann_pct_red,control_ids,control_measures,current_cost,cumulative_cost,projection_factor,reg_codes,calc_method,calc_year,date_updated,data_set_id,jan_value,feb_value,mar_value,apr_value,may_value,jun_value,jul_value,aug_value,sep_value,oct_value,nov_value,dec_value,jan_pctred,feb_pctred,mar_pctred,apr_pctred,may_pctred,jun_pctred,jul_pctred,aug_pctred,sep_pctred,oct_pctred,nov_pctred,dec_pctred,comment,comments,record_id,version,delete_versions
+Flat_File_2010_Nonpoint_column_hidden=
+Flat_File_2010_Activity_column_order=country_cd,region_cd,tribal_code,census_tract_cd,shape_id,scc,act_parm_type_cd,act_parm_uofmsr,activity_type,ann_parm_value,calc_year,date_updated,date_set_id,jan_value,feb_value,mar_value,apr_value,may_value,jun_value,jul_value,aug_value,sep_value,oct_value,nov_value,dec_value,comment,comments,record_id,version,delete_versions
+Flat_File_2010_Activity_column_hidden=
+Plant_Closure_(CSV)_column_order=fips,plantid,pointid,stackid,segment,plant,effective_date,reference,comments_xxx,comments,record_id,version,delete_versions
+Plant_Closure_(CSV)_column_hidden=
+Onroad_Mobile_Daily_Summary_column_order=sector,fips,state,county,date,dayofweek,nh3,nox,pm2_5,so2,voc_inv,comments,record_id,version,delete_versions
+Onroad_Mobile_Daily_Summary_column_hidden=
+SCC_Descriptions_with_Levels_column_order=scc,data_category,short_name,ei_sector,option_group,option_set,scc_level_one,scc_level_two,scc_level_three,scc_level_four,map_to,last_inventory_year,created_date,revised_date,comments,record_id,version,delete_versions
+SCC_Descriptions_with_Levels_column_hidden=
+Projection_Packet_column_order=fips,scc,proj_factor,poll,sic,mact,plantid,pointid,stackid,segment,naics,char_5,comments,record_id,version,delete_versions
+Projection_Packet_column_hidden=
+Surrogate_Descriptions_(SRGDESC)_column_order=region,code,name,filename,comments,record_id,version,delete_versions
+Surrogate_Descriptions_(SRGDESC)_column_hidden=
+List_of_nonCAMD_EGUs_for_Temporalization_column_order=state,fips,agy_facility_id,agy_unit_id,facility_name,nox_2011,yn_small_egu,state_comments,commenter,submit_date,commenter_email,notes,comments,record_id,version,delete_versions
+List_of_nonCAMD_EGUs_for_Temporalization_column_hidden=
+Temporal_Cross_Reference_(CSV)_column_order=scc,fips,plantid,pointid,stackid,processid,poll,profile_type,profile_id,comment,comments,record_id,version,delete_versions
+Temporal_Cross_Reference_(CSV)_column_hidden=
+Flat_File_2010_Point_Hourly_column_order=country_cd,region_cd,tribal_code,facility_id,unit_id,rel_point_id,process_id,scc,poll,op_type_cd,calc_method,date_updated,date,daytot,hrval0,hrval1,hrval2,hrval3,hrval4,hrval5,hrval6,hrval7,hrval8,hrval9,hrval10,hrval11,hrval12,hrval13,hrval14,hrval15,hrval16,hrval17,hrval18,hrval19,hrval20,hrval21,hrval22,hrval23,comment,comments,record_id,version,delete_versions
+Flat_File_2010_Point_Hourly_column_hidden=
+Temporal_Profile_(A/M/PTPRO)_column_order=code,jan,feb,mar,apr,may,jun,jul,aug,sep,oct,nov,dece,total_weights,comments,record_id,version,delete_versions
+Temporal_Profile_(A/M/PTPRO)_column_hidden=
+Temporal_Profile_Weekly_(CSV)_column_order=profile_id,monday,tuesday,wednesday,thursday,friday,saturday,sunday,comment,comments,record_id,version,delete_versions
+Temporal_Profile_Weekly_(CSV)_column_hidden=
+Temporal_Profile_Daily_(CSV)_column_order=profile_id,month,day1,day2,day3,day4,day5,day6,day7,day8,day9,day10,day11,day12,day13,day14,day15,day16,day17,day18,day19,day20,day21,day22,day23,day24,day25,day26,day27,day28,day29,day30,day31,comments,record_id,version,delete_versions
+Temporal_Profile_Daily_(CSV)_column_hidden=
+Allowable_Packet_column_order=fips,scc,poll,control_factor,cap,replacement,sic,plantid,pointid,stackid,segment,compliance_date,naics,comments,record_id,version,delete_versions
+Allowable_Packet_column_hidden=
+Temporal_Profile_Monthly_(CSV)_column_order=profile_id,january,february,march,april,may,june,july,august,september,october,november,december,comment,comments,record_id,version,delete_versions
+Temporal_Profile_Monthly_(CSV)_column_hidden=
