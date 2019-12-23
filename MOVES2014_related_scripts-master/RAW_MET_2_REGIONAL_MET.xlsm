@@ -1,0 +1,112 @@
+Sub RAW_MET_2_REGIONAL_MET()
+    'JHuang 1/29/2018
+    'This VBA code is to copy the MET provided by McLab_Bradley to the data format MOVES wants
+    'NC_Met_Zones_16.xlsx
+    Dim pathin As String
+    Dim FileNameIn As String
+    Dim FileIn As String
+    Dim FileNameMET As String
+    Dim FileMET As String
+    Dim METSheet As String
+    Dim pathout1 As String
+    Dim pathout2 As String
+    Dim FileNameReg As String
+    Dim FileReg As String
+    Dim FileNameTMP As String
+    Dim FileTMP As String
+    Dim l As Long
+    Dim Year As Integer
+    Dim arTmp
+    Dim CountyID()
+    Dim CountyName()
+    Dim StationID_list()
+    Dim counter As Long
+    Dim cell As Range
+    Dim r As Range
+    
+    FileNameReg = "NC_Met_Zones_17.xlsx"
+    FileReg = "V:\Onroad\MOVES_Raw_Data\Met_Data\" & FileNameReg
+    Workbooks.Open (FileReg)
+    Workbooks(FileNameReg).Sheets("Sheet1").Select
+    arTmp = Range("A2:G101").CurrentRegion
+    counter = UBound(arTmp, 1)
+    ReDim CountyName(1 To counter)
+    ReDim CountyID(1 To counter)
+    ReDim StationID_list(1 To counter)
+    For l = 1 To counter
+        CountyID(l) = arTmp(l, 2)
+        CountyName(l) = arTmp(l, 1)
+        StationID_list(l) = arTmp(l, 6)
+    Next l
+    Workbooks(FileNameReg).Close savechanges:=False
+    
+    i = 2 'the 1st element is the table header, FIPs YEAR etc
+    Do Until i > counter
+    
+    pathout1 = "V:\Onroad\MOVES_Raw_Data\Met_Data\2017\" & StationID_list(i)
+    If Dir(pathout1, vbDirectory) = "" Then
+        MkDir Path:=pathout1
+        'MsgBox "Done"
+    Else
+        GoTo NextIteration
+    End If
+NextIteration:
+    i = i + 1
+    Loop
+    
+    Year = 2017
+    i = 2 'the 1st element is the table header, FIPs YEAR etc
+    Do Until i > counter
+        RegionID = CountyID(i) & 0
+        pathin = "V:\Onroad\MOVES_Raw_Data\Met_Data\"
+        FileNameIn = "McLamb_Bradley_" & StationID_list(i) & "_" & Year & ".xls"
+        FileIn = pathin & Year & "\" & FileNameIn
+        METSheet = "McLamb_Bradley_" & StationID_list(i) & "_" & Year
+        FileNameMET = "EXAMPLE_MET.xlsx"
+        FileMET = pathin & Year & "\" & FileNameMET
+        FileNameTMP = "TMP.xlsx"
+        FileTMP = pathin & Year & "\" & FileNameTMP
+        pathout1 = "V:\Onroad\MOVES_Raw_Data\Met_Data\2017\" & StationID_list(i)
+        FileNameout = "c" & CountyID(i) & "_y" & Year & "_" & CountyName(i) & "_MET.xlsx"
+        Fileout1 = pathout1 & "\" & FileNameout
+        pathout2 = "V:\Onroad\MOVES_Raw_Data\Met_Data\" & Year
+        Fileout2 = pathout2 & "\" & FileNameout
+        'MsgBox Fileout2
+        Workbooks.Open (FileIn)
+        Workbooks.Open (FileMET)
+        Workbooks.Open (FileTMP)
+        Workbooks(FileNameIn).Sheets(METSheet).Range("A10:E297").Copy Workbooks(FileNameTMP).Sheets("Sheet1").Range("A1")
+        Windows("TMP.xlsx").Activate
+        Columns("A:E").Select
+        ActiveWorkbook.Worksheets("Sheet1").Sort.SortFields.Clear
+        ActiveWorkbook.Worksheets("Sheet1").Sort.SortFields.Add Key:=Range("A1:A289") _
+        , SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
+        ActiveWorkbook.Worksheets("Sheet1").Sort.SortFields.Add Key:=Range("B1:B289") _
+        , SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
+        With ActiveWorkbook.Worksheets("Sheet1").Sort
+            .SetRange Range("A1:E289")
+            .Header = xlGuess
+            .MatchCase = False
+            .Orientation = xlTopToBottom
+            .SortMethod = xlPinYin
+            .Apply
+        End With
+
+        Range("C:C").Delete
+        Range("B1:D288").Cut Range("C1")
+        Range("B1:B288").Value = RegionID
+        Set r = Range("C1:C288")
+        For Each cell In r
+            cell.Value = cell.Value + 1
+        Next
+        Workbooks(FileNameTMP).Sheets("Sheet1").Range("A1:E288").Copy Workbooks(FileNameMET).Sheets("ZoneMonthHour").Range("A2")
+        Workbooks(FileNameMET).SaveAs Filename:=Fileout1, FileFormat:=xlOpenXMLWorkbook
+        Workbooks(FileNameout).SaveAs Filename:=Fileout2, FileFormat:=xlOpenXMLWorkbook
+        Workbooks(FileNameout).Close
+        Workbooks(FileNameTMP).Close savechanges:=False
+        Workbooks(FileNameIn).Close savechanges:=False
+    i = i + 1
+    Loop
+MsgBox "Done"
+End Sub
+

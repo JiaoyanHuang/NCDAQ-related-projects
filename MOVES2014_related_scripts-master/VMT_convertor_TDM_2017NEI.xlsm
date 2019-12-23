@@ -1,0 +1,170 @@
+Sub VMT_convertor_TDM()
+    '1. Read Design Sheet/VMT Converter to obtain CountyID, CountyName, Year, VMT path and file for each run
+    '    loop over different county and year
+    '2. Read VMT number from HPMS or TDM VMT workbook
+    '3. Copy these data to real VMT_converter for each county and year
+    '4. Read Vehicle mix data from corresponding files (based on year) and copy it to real VMT_converter
+    '5. Clean files and close files
+    'JHuang 1/29/2018
+    Dim pathMain As String
+    Dim pathout As String
+    Dim FileNameout As String 'output file name
+    Dim Fileout As String
+    Dim FileNameDS As String  '
+    Dim FileDS As String
+    Dim FileNameMRM As String
+    Dim FileMRM As String
+    Dim FileNameVMT As String
+    Dim FileVMT As String
+    
+    Dim pathVMTMix As String
+    Dim FileNameVMTMix As String
+    Dim FileVMTMix As String
+    Dim VMTMixSH As String
+    
+    Dim x As Workbook
+    Dim y As Workbook
+    Dim z As Workbook
+    Dim DS As Workbook
+    Dim MRM_sheet As String
+    'Dim filehead As String
+    'Dim filetail As String
+    Dim i As Integer
+    Dim l As Long
+    Dim num1 As Integer
+    Dim mum2 As Integer
+    Dim Year As Integer
+    Dim CountyDesc As String
+    Dim arTmp
+    Dim CountyID()
+    Dim CountyName()
+    Dim YearID()
+    Dim pathout_list()
+    Dim FileNameout_list()
+    Dim counter As Long
+    'end of variable declaration
+    
+    'read CountyID CountyName YearID from Design sheet and assign them in 1D arrays
+    pathMain = "V:\Onroad\Projects_Inventory\2017_NEI_NC_Onroad_EI\" 'change as need
+    FileNameDS = "2017_EPA_NEI_Design_Sheet.xlsx" 'change as need
+    FileDS = pathMain & FileNameDS
+    Workbooks.Open (FileDS)
+    Workbooks(FileNameDS).Sheets("VMT Converter").Select
+    
+    'select the data range needed
+    arTmp = Range("A2:L22").CurrentRegion
+    counter = UBound(arTmp, 1)
+    
+    'generate temp arrays to store related info such as CountyID etc
+    ReDim CountyName(1 To counter)
+    ReDim CountyID(1 To counter)
+    ReDim YearID(1 To counter)
+    ReDim pathout_list(1 To counter)
+    ReDim FileNameout_list(1 To counter)
+    ReDim VMTsource(1 To counter)
+    
+    'read data and store in these empty arrays
+    For l = 1 To counter
+        CountyID(l) = arTmp(l, 1)
+        CountyName(l) = arTmp(l, 2)
+        YearID(l) = arTmp(l, 4)
+        pathout_list(l) = arTmp(l, 12)
+        FileNameout_list(l) = arTmp(l, 13)
+        VMTsource(l) = arTmp(l, 6)
+    Next l
+    Workbooks(FileNameDS).Close savechanges:=False 'close design sheet
+
+    'filehead = "Metrolina2045MTPAllPay"
+    'filetail = "_TDM_vmt-converter-road-veh16-20100209.xlsx"
+    
+    FileNameMRM = "MRM.xlsx"
+    FileMRM = pathMain & "VMT_Converters\" & FileNameMRM
+    FileNameVMT = "VMT_TDM.xlsx"
+    FileVMT = pathMain & "VMT_Converters\" & FileNameVMT
+    FileNameTMP = "TMP.xlsx"
+    FileTMP = pathMain & "VMT_Converters\" & FileNameTMP
+    
+    'start from index of 2 due to the first line is the head
+    i = 2
+    Do Until i > counter 'loop over the number of runs
+        If VMTsource(i) = "TDM" Then
+            'get infomation such as year and countyID
+            Year = YearID(i)
+            CountyDesc = CountyID(i)
+            pathout = pathout_list(i)
+            Workbooks.Open (FileMRM)
+            FileNameout = FileNameout_list(i)
+            Fileout = pathout & "\TDM\" & FileNameout
+            MRM_sheet = "MRM"
+            'find the selected county in HPMS input file
+            Set FoundCell = Workbooks(FileNameMRM).Sheets(MRM_sheet).Range("A:A").Find(What:=CountyDesc)
+            Set x = Workbooks.Open(FileMRM)
+            Set y = Workbooks.Open(FileVMT)
+            Set z = Workbooks.Open(FileTMP)
+            'select the data we need
+            num1 = FoundCell.Row
+            num2 = FoundCell.Row + 12
+            R = "K" & num1 & ":K" & num2
+            
+            'copy required data to TMP file
+            Workbooks(FileNameMRM).Sheets(MRM_sheet).Range(R).Copy Workbooks(FileNameTMP).Sheets("2").Range("A1")
+            
+            num1 = num2 + 1
+            num2 = num1 + 12
+            R = "K" & num1 & ":K" & num2
+            
+            'copy required data to TMP file
+            Workbooks(FileNameMRM).Sheets(MRM_sheet).Range(R).Copy Workbooks(FileNameTMP).Sheets("2").Range("B1")
+            
+            num1 = num2 + 1
+            num2 = num1 + 12
+            R = "K" & num1 & ":K" & num2
+            
+            'copy required data to TMP file
+            Workbooks(FileNameMRM).Sheets(MRM_sheet).Range(R).Copy Workbooks(FileNameTMP).Sheets("2").Range("C1")
+            
+            num1 = num2 + 1
+            num2 = num1 + 12
+            R = "K" & num1 & ":K" & num2
+            
+            'copy required data to TMP file
+            Workbooks(FileNameMRM).Sheets(MRM_sheet).Range(R).Copy Workbooks(FileNameTMP).Sheets("2").Range("D1")
+            
+            'copy required data to real VMT convertor file
+            Workbooks(FileNameTMP).Sheets("2").Range("A1:D13").Copy
+            Workbooks(FileNameVMT).Sheets("Annual VMT").Range("D4").PasteSpecial xlPasteValues
+            Workbooks(FileNameVMT).Sheets("Annual VMT").Range("A3").Value = CountyName(i)
+            Workbooks(FileNameVMT).Sheets("Import RoadVMT & vType16 Fracs").Range("B1").Value = YearID(i)
+            
+            'select corresponding fleet mix data (provided by DOT) and input into VMT file
+            If Year < 2017 Then
+                pathVMTMix = "P:\Planning\_ATTAINMENT\Onroad\MOVES_Raw_Data\Vehicle_Mix_Statewide\" & Year & "\"
+            Else
+                pathVMTMix = "P:\Planning\_ATTAINMENT\Onroad\MOVES_Raw_Data\Vehicle_Mix_Statewide\2017\"
+            End If
+            
+            If Year < 2019 Then
+                FileNameVMTMix = Year & " State Vehicle Mix Worksheet.xlsx"
+                VMTMixSH = Year & " State Vehicle Mix"
+            Else
+                FileNameVMTMix = "2020+ State Vehicle Mix Worksheet.xlsx"
+                VMTMixSH = "2020+ State Vehicle Mix"
+            End If
+            FileVMTMix = pathVMTMix & FileNameVMTMix
+            Workbooks.Open (FileVMTMix)
+            Workbooks(FileNameVMT).Sheets("RoadVMT_Frac & Hrly VMtFrac").Range("A21").Value = FileVMTMix
+            Workbooks(FileNameVMTMix).Sheets(VMTMixSH).Range("J5:U20").Copy
+            Workbooks(FileNameVMT).Sheets("RoadVMT_Frac & Hrly VMtFrac").Range("B3").PasteSpecial xlPasteValues
+            
+            'save as corresponding file for each run
+            Workbooks(FileNameVMT).SaveAs Filename:=Fileout, FileFormat:=xlOpenXMLWorkbook
+            'close all files
+            Workbooks(FileNameout).Close
+            Workbooks(FileNameVMTMix).Close savechanges:=False
+            Workbooks(FileNameMRM).Close savechanges:=False
+            Workbooks(FileNameTMP).Close savechanges:=False
+        End If
+        i = i + 1 'move to next run
+    Loop 'end loop
+End Sub
+
