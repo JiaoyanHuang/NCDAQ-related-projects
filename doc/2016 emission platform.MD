@@ -184,7 +184,28 @@ Therefore, I separated running these onroad scripts, you can adjust these script
 run 
 ```
 scripts/merge/Sector_merge_12US1_2016ff_16j.csh
+
+# sector list file
+/storage/highspeed/JH/EMP_2016/newftp.epa.gov/air/emismod/2016/v1/2016emissions/2016fh_16j/scripts/sectorlist_2016fh_02aug2019_v0_all
 ```
+What sector to merge is depended on how you will run CMAQ. Current default method is using PT3D, which run emissions in two different ways: 
+
+1. surface emissions: such as biogen/onroad etc, these emissions are required merged into 2D emission files
+
+2. elevated emissions: from stack emissions, these emissions will keep the inln format with group file
+
+also, if you are turning on POA mech rwc is running separately to represent correct primary organic aerosolse
+
+## QA
+To QA emissions data, there are 3 steps
+1. spatial variation QA
+```
+/storage/highspeed/JH/EMP_2016/newftp.epa.gov/air/emismod/2016/v1/2016emissions/2016fh_16j/smoke_out/2016fh_16j/12US2/cmaq_cb6/onroaddsum.csh
+```
+
+
+2. temporal vatiation QA
+3. total domain QA
 
 ## 4km NC
 ```
