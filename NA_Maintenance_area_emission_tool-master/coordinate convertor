@@ -1,0 +1,29 @@
+library(sf) #st_read
+#read shape file data  
+path <- "V:/Onroad/Projects_SIP/NC_1997_Ozone_NAAQS_Ltd_Maintenance_Plan_2019/GIS"
+file <- "V:/Onroad/Projects_SIP/NC_1997_Ozone_NAAQS_Ltd_Maintenance_Plan_2019/GIS/GSMNP_NC_Section.shp"  #Haywood.shp"
+data <- st_read(file, stringsAsFactors=FALSE)
+#this will give us the proj4string
+#eg
+#Reading layer `GSMNP_NC_Section' from data source `V:\Onroad\Projects_SIP\NC_1997_Ozone_NAAQS_Ltd_Maintenance_Plan_2019\GIS\GSMNP_NC_Section.shp' using driver `ESRI Shapefile'
+# Simple feature collection with 6 features and 22 fields
+# geometry type:  POLYGON
+# dimension:      XY
+# bbox:           xmin: 234986.4 ymin: 3923747 xmax: 319130.8 ymax: 3960576
+# epsg (SRID):    26917
+# proj4string:    +proj=utm +zone=17 +datum=NAD83 +units=m +no_defs
+library(proj4)
+
+proj4string <- "+proj=utm +zone=17 +datum=NAD83 +units=m +no_defs"
+
+#for each polygon
+for (i in 1:length(data$geometry)){
+  x <- data.frame(data$geometry[[i]][1])
+  colnames(x) <- c("x","y")
+  data_t <- data.frame(project(x, proj4string, inverse=TRUE))
+  colnames(data_t) <- c("long","lat")
+  outfile <- sprintf("%s/long_lat_shp_%s.csv",path,i)
+  write.csv(data_t,outfile,row.names = F, quote = F)
+}
+outfile <- sprintf("%s/long_lat_Haywood.csv",path)
+write.csv(data_t2,outfile,row.names = F, quote = F)
