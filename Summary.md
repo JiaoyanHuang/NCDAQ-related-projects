@@ -25,6 +25,17 @@ appendwrf  bldoverlay  block_extract  calc_tmetric  combine  hr2day  sitecmp  si
 
 ### NC nesting
 potnetial grids
+
+```
+&geogrid
+parent_id = 1, 1,
+parent_grid_ratio = 1, 3,
+i_parent_start = 1, 287,
+j_parent_start = 1, 87,
+e_we = 408, 202,
+e_sn = 258, 115,
+```
+
 ```
 GRID-NAME
 COORD-NAME, XORIG, YORIG, XCELL, YCELL, NCOLS, NROWS, NTHIK
