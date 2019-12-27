@@ -1,5 +1,27 @@
-Joey Huang huangj1311@gmail.com 20191029
+Joey Huang huangj1311@gmail.com 20191227
+
+[MOVES_script](https://github.com/JiaoyanHuang/NCDAQ-related-projects/blob/master/doc/MOVES.md)
+
+[MOVES_post_plots](https://github.com/JiaoyanHuang/NCDAQ-related-projects/blob/master/doc/MOVESdata.md)
+
+[spatial_allocator](https://github.com/JiaoyanHuang/NCDAQ-related-projects/blob/master/doc/NA_MA_spatial_allocator_tools.md) R version
+
+[EMF](https://github.com/JiaoyanHuang/NCDAQ-related-projects/blob/master/doc/EMF.md)
+
+[WRF_installation](https://github.com/JiaoyanHuang/NCDAQ-related-projects/blob/master/doc/WRF%20and%20WPS%20installation.MD)
+
+[CMAQ_installation](https://github.com/JiaoyanHuang/NCDAQ-related-projects/blob/master/doc/CMAQ(v5.3)%20system%20installation%20NCDAQ.md)
+
+[2016_EMP](https://github.com/JiaoyanHuang/NCDAQ-related-projects/blob/master/doc/2016%20emission%20platform.MD)
+
+[run_CMAQ](https://github.com/JiaoyanHuang/NCDAQ-related-projects/blob/master/doc/run_CMAQ(v5.3)_benchmark.md)
+
+[CMAQ_prep_post_analysis](https://github.com/JiaoyanHuang/NCDAQ-related-projects/blob/master/doc/PREP_POST_data_process.md)
+
 https://www.cmascenter.org
+
+
+# CMAQ related topics
 
 All the installations are based on follwoing settings:
 
