@@ -5,6 +5,8 @@ The full COST_EMF guidance are listed below:
 
 [MARMA_EMF_state_end_dir](https://github.com/JiaoyanHuang/NCDAQ-related-projects/tree/master/EMF_State)
 
+P:\Planning\_ATTAINMENT\Onroad\EMF\EMF_State.zip
+
 0. setup EMF to link to MARAMA server
   - copy MARMA_EMF_state_end_dir to your local C drive
   - edit make sure java path is correct eg. set JAVA_EXE=C:\Program Files (x86)\Java\jre1.8.0_211\bin\java
