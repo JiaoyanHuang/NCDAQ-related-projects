@@ -1,0 +1,21 @@
+CODE,DESCRIPTION
+100,Population
+150,Residential Heating - Natural Gas
+170,Residential Heating - Distillate Oil
+190,Residential Heating - LP Gas
+239,Total Road AADT
+244,All Unrestricted AADT
+261,NTAD Total Railroad Density
+271,NTAD Class 1 2 3 Railroad Density
+300,NLCD Low Intensity Development
+304,NLCD Open + Low
+305,NLCD Low + Med
+306,NLCD Med + High
+307,NLCD All Development
+308,NLCD Low + Med + High
+309,NLCD Open + Low + Med
+310,NLCD Total Agriculture
+320,NLCD Forest Land
+321,NLCD Recreational Land
+350,NLCD Water
+850,Golf Courses
