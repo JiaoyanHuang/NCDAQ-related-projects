@@ -21,13 +21,9 @@ double check path, GRID, REAL, latmin, latmax, lonmin, lonmax, county_list, SF_c
 ## Target area mask
 NA_target area
 double check path, GRID, REAL, latmin, latmax, lonmin, lonmax, county_list, SF_code, SF_DESC  
-
 GRID: surrogate grid file with col/row and lat/log
-
 REAL: lat/log file for your target area, eg National Park
-
 latmin, latmax, lonmin, lonmax for a domain box
-
 new code uses SF_list_file instead of SF_code and SF_DESC, which is a list of surrogate files
 
 ![target area grids](https://github.com/JiaoyanHuang/NCDAQ-related-projects/tree/master/NA_Maintenance_area_emission_tool-master/plots/GSMNP_cell.png)  
