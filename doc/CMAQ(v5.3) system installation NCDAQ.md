@@ -41,6 +41,8 @@ mkdir netcdf
 cd netcdf
 wget ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-c-4.7.0.tar.gz
 ```
+newer version 
+ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-c-4.7.4.tar.gz
 
 2. Untar the file 
 
